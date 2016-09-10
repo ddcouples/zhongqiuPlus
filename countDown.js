@@ -142,11 +142,11 @@ function updataBalls(){
 				balls[i].y=WINDOW_HEIGHT-Radius;
 				balls[i].vy=-balls[i].vy*balls[i].xishu;
 			}
-			if(balls[i].x-Radius<0&&balls[i].y<WINDOW_HEIGHT-20*Radius){
+			if(balls[i].x-Radius<0&&balls[i].y<WINDOW_HEIGHT-26*Radius){
 				balls[i].x=Radius;
 				balls[i].vx=-balls[i].vx;
 			}
-			if(balls[i].x+Radius>WINDOW_WIDTH&&balls[i].y<WINDOW_HEIGHT-20*Radius){
+			if(balls[i].x+Radius>WINDOW_WIDTH&&balls[i].y<WINDOW_HEIGHT-26*Radius){
 				balls[i].x=WINDOW_WIDTH-Radius;
 				balls[i].vx=-balls[i].vx;
 			}
@@ -179,8 +179,8 @@ function addBalls(x,y,num){
 					x:x+j*2*(Radius+1)+Radius+1,
 					y:y+i*2*(Radius+1)+Radius+1,
 					g:1.5+Math.random(),
-					vx:Math.pow(-1,Math.ceil(Math.random()*1000))*4,
-					vy:-7+Math.pow(-1,Math.ceil(Math.random()*1000))*2,
+					vx:Math.pow(-1,Math.ceil(Math.random()*1000))*8,
+					vy:Math.pow(-1,Math.ceil(Math.random()*1000))*15,
 					color:getRandomColor(),
 					xishu:(Math.random()*30+60)/100
 				}

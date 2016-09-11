@@ -10,7 +10,7 @@ var curShowTimeSeconds=0;
 var balls=[];
 var Daytext="2016年中秋节";
 var fontTextLeft="杜小杜中秋快乐";
-var soundNum=3;
+var soundNum=3,a=0;
 
 var fontTextRight="————代小代";
 var img=[];
@@ -56,7 +56,8 @@ function init(){
 	soundPlay();
 }
 function soundPlay(){
-	var a=Math.floor(Math.random()*soundNum);
+	a=Math.floor(Math.random()*soundNum);
+	a=(++a)%3;
 	audio[a].play();
 }
 

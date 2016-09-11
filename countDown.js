@@ -19,7 +19,7 @@ var color1="red",color2="#0094ff",color3="pink",color4="blue",color5="green";
 window.onload=function(){
     
 	WINDOW_WIDTH=document.documentElement.clientWidth||document.body.clientWidth;
-	WINDOW_HEIGHT=document.documentElement.clientHeight||document.body.clientHeight;
+	WINDOW_HEIGHT=document.documentElement.clientHeight||document.body.clientHeight-20;
 	MARGIN_LEFT=Math.round(WINDOW_WIDTH/10);
 	MARGIN_TOP=Math.round(WINDOW_HEIGHT*2/6);
 	Radius=Math.round(WINDOW_WIDTH*4/5/108)-1;
@@ -224,12 +224,12 @@ function render(cxt){
 
     cxt.strokeStyle=color1;
     var text="距离 "+YEAR+" 年 "+(MONTH+1)+" 月 "+DAY+" 日 ";
-    cxt.strokeText(text,MARGIN_LEFT,MARGIN_TOP/3);
+    cxt.strokeText(text,MARGIN_LEFT,MARGIN_TOP/3-20);
     cxt.closePath();
 
     cxt.beginPath();
     cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px Arial";
-    cxt.fillText(Daytext,MARGIN_LEFT+300,MARGIN_TOP/3+80);
+    cxt.fillText(Daytext,MARGIN_LEFT+300,MARGIN_TOP/3+70);
     cxt.closePath();
 
 
@@ -237,7 +237,7 @@ function render(cxt){
     cxt.font="bolder "+(WINDOW_HEIGHT/30+20)+"px MicrosoftYAHEi";
     cxt.fillStyle=color2;
     var text1=" 已经过去 "+days+" 天 零";
-    cxt.fillText(text1,MARGIN_LEFT+30,MARGIN_TOP/3+140);
+    cxt.fillText(text1,MARGIN_LEFT+30,MARGIN_TOP/3+150);
     cxt.closePath();
 
    
@@ -251,7 +251,7 @@ function render(cxt){
      cxt.beginPath();
     cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px 楷体jb2312";
     cxt.fillStyle=color5;
-    cxt.fillText(fontTextRight,MARGIN_LEFT+300,MARGIN_TOP*2+20);
+    cxt.fillText(fontTextRight,MARGIN_LEFT+260,MARGIN_TOP*2+50);
     cxt.closePath();
 
 

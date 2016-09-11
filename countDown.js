@@ -236,7 +236,7 @@ function render(cxt){
     cxt.beginPath();
     cxt.font="bolder "+(WINDOW_HEIGHT/30+20)+"px MicrosoftYaHei";
     cxt.fillStyle=color2;
-    var text1=" 已经过去 "+days+" 天 零";
+    var text1=" 已经 "+days+" 天 零";
     cxt.fillText(text1,MARGIN_LEFT+30,MARGIN_TOP/3+150);
     cxt.closePath();
 

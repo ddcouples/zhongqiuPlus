@@ -10,6 +10,7 @@ var curShowTimeSeconds=0;
 var balls=[];
 var Daytext="2016年中秋节";
 var fontTextLeft="杜小杜中秋快乐";
+var soundNum=3;
 
 var fontTextRight="————代小代";
 var img=[];
@@ -43,7 +44,7 @@ function init(){
 		img[i]=new Image();
 		img[i].src="du"+i+".png";
 	}
-	for(var i=0;i<7;i++){
+	for(var i=0;i<soundNum;i++){
 		audio[i]=new Audio();
 		audio[i].src=getSound(i);
 		audio[i].addEventListener('ended', function () {  
@@ -55,7 +56,7 @@ function init(){
 	soundPlay();
 }
 function soundPlay(){
-	var a=Math.floor(Math.random()*7);
+	var a=Math.floor(Math.random()*soundNum);
 	audio[a].play();
 }
 
@@ -70,6 +71,7 @@ function changeImage(){
 	 var image=document.getElementsByTagName("img")[0];
 
 	 image.width=WINDOW_WIDTH;
+	 image.height=WINDOW_HEIGHT;
 	 var i=Math.floor(Math.random()*18);
 	 image.src="bg"+i+".jpg";
 }
@@ -231,10 +233,16 @@ function render(cxt){
 
 
     cxt.beginPath();
-    cxt.font="bolder "+(WINDOW_HEIGHT/30+10)+"px MicrosoftYAHEi";
+    cxt.font="bolder "+(WINDOW_HEIGHT/30+20)+"px MicrosoftYAHEi";
     cxt.fillStyle=color2;
     var text1=" 还有 "+days+" 天";
     cxt.fillText(text1,MARGIN_LEFT+300,MARGIN_TOP/3+100);
+    cxt.closePath();
+
+    cxt.beginPath();
+    cxt.font="bolder "+(WINDOW_HEIGHT/30+10)+"px MicrosoftYAHEi";
+    var text1="零";
+    cxt.fillText(text1,MARGIN_LEFT+360,MARGIN_TOP/3+180);
     cxt.closePath();
 
      cxt.beginPath();
@@ -318,20 +326,22 @@ function loop(context){
 
 function getSound(num) {
            switch (num) {
+               // case 0:
+               //     return "zlx.mp3";
                case 0:
-                   return "zlx.mp3";
+               return "Everytime.mp3";
                case 1:
                    return "Need You Now.mp3";
+               // case 2:
+               //     return "星月神话.mp3";
+               // case 3:
+               //     return "和你一样.mp3";
                case 2:
-                   return "星月神话.mp3";
-               case 3:
-                   return "和你一样.mp3";
-               case 4:
                    return "穿越时空的思念.mp3";
-               case 5:
-                   return "心愿.mp3";
-               case 6:
-                   return "演员.mp3";
+               // case 5:
+               //     return "心愿.mp3";
+               // case 6:
+               //     return "演员.mp3";
 
 
                default:

@@ -4,7 +4,7 @@ var WINDOW_HEIGHT=0;
 var Radius=8;
 var MARGIN_TOP=160;
 var MARGIN_LEFT=30;
-var YEAR=2012,MONTH=0,DAY=6;HOUR=20,MIN=0,SEC=0;
+var YEAR=2012,MONTH=0,DAY=6;HOUR=20,MIN=0,SEC=0,days=0;
 const endTime=new Date(YEAR,MONTH,DAY,HOUR,MIN,SEC);
 var curShowTimeSeconds=0;
 var balls=[];
@@ -17,6 +17,7 @@ var img=[];
 var imgbgNum=17;
 var audio=[];
 var color1="red",color2="#0094ff",color3="pink",color4="blue",color5="green";
+var textcanvas,options;
 window.onload=function(){
     
 	WINDOW_WIDTH=document.documentElement.clientWidth||document.body.clientWidth;
@@ -24,16 +25,20 @@ window.onload=function(){
 	MARGIN_LEFT=Math.round(WINDOW_WIDTH/10);
 	MARGIN_TOP=Math.round(WINDOW_HEIGHT*2/6);
 	Radius=Math.round(WINDOW_WIDTH*4/5/108)-1;
-   console.log(WINDOW_HEIGHT);
+    //console.log(WINDOW_HEIGHT);
 	var canvas=document.getElementById('canvas');
+	textcanvas=document.getElementById('textcanvas');
 	var context=canvas.getContext("2d");
 
 	canvas.width=WINDOW_WIDTH;
 	canvas.height=WINDOW_HEIGHT;
+
+	
 	 init();
     // 取得秒数
     curShowTimeSeconds=getCurrentShowTimeSecond();
     loop(context);
+    doGranule()
     
 	
 }
@@ -120,7 +125,7 @@ function update(){
 		curShowTimeSeconds=nextShowTimeSeconds;
 	}
 	updataBalls();
-	console.log(balls.length);
+	//console.log(balls.length);
 }
 
 function updataBalls(){
@@ -213,37 +218,37 @@ function addPicBalls(x,y){
 // 打造每个数字的小球
 function render(cxt){
 	cxt.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
-	var days=parseInt(curShowTimeSeconds/3600/24);
+	days=parseInt(curShowTimeSeconds/3600/24);
 	var hours=parseInt((curShowTimeSeconds-days*3600*24)/3600);
 	var minutes=parseInt((curShowTimeSeconds-days*3600*24-hours*3600)/60);
 	var seconds=parseInt(curShowTimeSeconds%60);
 	cxt.textAlign="left";
     cxt.textBaseline="top";
   
-    cxt.beginPath();
-    cxt.font="bold "+WINDOW_HEIGHT/30+"px Arial";
+    // cxt.beginPath();
+    // cxt.font="bold "+WINDOW_HEIGHT/30+"px Arial";
 
-    cxt.strokeStyle=color1;
-    var text="距离 "+YEAR+" 年 "+(MONTH+1)+" 月 "+DAY+" 日 ";
-    cxt.strokeText(text,MARGIN_LEFT,MARGIN_TOP/3-20);
-    cxt.closePath();
+    // cxt.strokeStyle=color1;
+    // var text="距离 "+YEAR+" 年 "+(MONTH+1)+" 月 "+DAY+" 日 ";
+    // cxt.strokeText(text,MARGIN_LEFT,MARGIN_TOP/3-20);
+    // cxt.closePath();
 
-    cxt.beginPath();
-    cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px  Verdana";
-    cxt.fillText(Daytext,MARGIN_LEFT+300,MARGIN_TOP/3+70);
-    cxt.closePath();
+    // cxt.beginPath();
+    // cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px  Verdana";
+    // cxt.fillText(Daytext,MARGIN_LEFT+300,MARGIN_TOP/3+70);
+    // cxt.closePath();
 
 
-    cxt.beginPath();
-    cxt.font="bolder "+(WINDOW_HEIGHT/30+20)+"px MicrosoftYaHei";
-    cxt.fillStyle=color2;
-    var text1=" 已经 "+days+" 天 零";
-    cxt.fillText(text1,MARGIN_LEFT+30,MARGIN_TOP/3+150);
-    cxt.closePath();
+    // cxt.beginPath();
+    // cxt.font="bolder "+(WINDOW_HEIGHT/30+20)+"px MicrosoftYaHei";
+    // cxt.fillStyle=color2;
+    // var text1=" 已经 "+days+" 天 零";
+    // cxt.fillText(text1,MARGIN_LEFT+30,MARGIN_TOP/3+150);
+    // cxt.closePath();
 
    
 
-     cxt.beginPath();
+    cxt.beginPath();
     cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px Helvetica";
     cxt.fillStyle=color4;
     cxt.fillText(fontTextLeft,MARGIN_LEFT+20,MARGIN_TOP*2);
@@ -348,4 +353,20 @@ function getSound(num) {
            }
 }
 
+function doGranule(){
+
+  var defaultoptions = {
+	            canvas: textcanvas,
+	            canvasW: WINDOW_WIDTH, //画布高
+	            canvasH: MARGIN_TOP,
+	            imgSrc: "",
+	            //imgSrc: "du3.png",
+	            delay: 1000, //开始的延迟时间（多少s后开始）
+	            duration: 200, //持续时间
+	            interval: 30-Math.floor(Math.random()*60),// 缓冲时间
+	        };
+	        options=defaultoptions;
+	        var ga = new GranuleAnimation(defaultoptions);
+	        ga.draw();
+}
 

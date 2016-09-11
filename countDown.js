@@ -4,11 +4,11 @@ var WINDOW_HEIGHT=0;
 var Radius=8;
 var MARGIN_TOP=160;
 var MARGIN_LEFT=30;
-var YEAR=2016,MONTH=8,DAY=15;HOUR=0,MIN=0,SEC=0;
+var YEAR=2012,MONTH=0,DAY=6;HOUR=20,MIN=0,SEC=0;
 const endTime=new Date(YEAR,MONTH,DAY,HOUR,MIN,SEC);
 var curShowTimeSeconds=0;
 var balls=[];
-var Daytext="2016年中秋节";
+var Daytext="在一起纪念日";
 var fontTextLeft="杜小杜中秋快乐";
 var soundNum=3,a=0;
 
@@ -64,9 +64,9 @@ function soundPlay(){
 
 function getCurrentShowTimeSecond(){
 	var curTime=new Date();
-	var ret=endTime.getTime()-curTime.getTime();
+	var ret=curTime.getTime()-endTime.getTime();
 	ret=Math.round(ret/1000);
-	return ret>=0?ret:0;
+	return ret;
 }
 function changeImage(){
 	 var image=document.getElementsByTagName("img")[0];
@@ -229,22 +229,18 @@ function render(cxt){
 
     cxt.beginPath();
     cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px Arial";
-    cxt.fillText(Daytext,MARGIN_LEFT+20,MARGIN_TOP/3+100);
+    cxt.fillText(Daytext,MARGIN_LEFT+300,MARGIN_TOP/3+80);
     cxt.closePath();
 
 
     cxt.beginPath();
     cxt.font="bolder "+(WINDOW_HEIGHT/30+20)+"px MicrosoftYAHEi";
     cxt.fillStyle=color2;
-    var text1=" 还有 "+days+" 天";
-    cxt.fillText(text1,MARGIN_LEFT+300,MARGIN_TOP/3+100);
+    var text1=" 已经过去 "+days+" 天 零";
+    cxt.fillText(text1,MARGIN_LEFT+30,MARGIN_TOP/3+140);
     cxt.closePath();
 
-    cxt.beginPath();
-    cxt.font="bolder "+(WINDOW_HEIGHT/30+10)+"px MicrosoftYAHEi";
-    var text1="零";
-    cxt.fillText(text1,MARGIN_LEFT+360,MARGIN_TOP/3+180);
-    cxt.closePath();
+   
 
      cxt.beginPath();
     cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px 楷体jb2312";

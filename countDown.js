@@ -23,7 +23,7 @@ window.onload=function(){
 	MARGIN_LEFT=Math.round(WINDOW_WIDTH/10);
 	MARGIN_TOP=Math.round(WINDOW_HEIGHT*2/6);
 	Radius=Math.round(WINDOW_WIDTH*4/5/108)-1;
-
+   console.log(WINDOW_HEIGHT);
 	var canvas=document.getElementById('canvas');
 	var context=canvas.getContext("2d");
 
@@ -228,13 +228,13 @@ function render(cxt){
     cxt.closePath();
 
     cxt.beginPath();
-    cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px Arial";
+    cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px  Verdana";
     cxt.fillText(Daytext,MARGIN_LEFT+300,MARGIN_TOP/3+70);
     cxt.closePath();
 
 
     cxt.beginPath();
-    cxt.font="bolder "+(WINDOW_HEIGHT/30+20)+"px MicrosoftYAHEi";
+    cxt.font="bolder "+(WINDOW_HEIGHT/30+20)+"px MicrosoftYaHei";
     cxt.fillStyle=color2;
     var text1=" 已经过去 "+days+" 天 零";
     cxt.fillText(text1,MARGIN_LEFT+30,MARGIN_TOP/3+150);
@@ -243,13 +243,13 @@ function render(cxt){
    
 
      cxt.beginPath();
-    cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px 楷体jb2312";
+    cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px Helvetica";
     cxt.fillStyle=color4;
     cxt.fillText(fontTextLeft,MARGIN_LEFT+20,MARGIN_TOP*2);
     cxt.closePath();
 
      cxt.beginPath();
-    cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px 楷体jb2312";
+    cxt.font="bolder "+WINDOW_HEIGHT/30+10+"px 方正隶书";
     cxt.fillStyle=color5;
     cxt.fillText(fontTextRight,MARGIN_LEFT+260,MARGIN_TOP*2+50);
     cxt.closePath();

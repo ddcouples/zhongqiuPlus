@@ -19,7 +19,7 @@ var color1="red",color2="#0094ff",color3="pink",color4="blue",color5="green";
 window.onload=function(){
     
 	WINDOW_WIDTH=document.documentElement.clientWidth||document.body.clientWidth;
-	WINDOW_HEIGHT=document.documentElement.clientHeight||document.body.clientHeight-20;
+	WINDOW_HEIGHT=document.documentElement.clientHeight||document.body.clientHeight-65;
 	MARGIN_LEFT=Math.round(WINDOW_WIDTH/10);
 	MARGIN_TOP=Math.round(WINDOW_HEIGHT*2/6);
 	Radius=Math.round(WINDOW_WIDTH*4/5/108)-1;

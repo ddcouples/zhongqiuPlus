@@ -8,7 +8,7 @@ var YEAR=2012,MONTH=0,DAY=6;HOUR=20,MIN=0,SEC=0;
 const endTime=new Date(YEAR,MONTH,DAY,HOUR,MIN,SEC);
 var curShowTimeSeconds=0;
 var balls=[];
-var Daytext="在一起纪念日";
+var Daytext="love纪念日";
 var fontTextLeft="杜小杜中秋快乐";
 var soundNum=3,a=0;
 

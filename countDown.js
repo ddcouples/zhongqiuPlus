@@ -14,6 +14,7 @@ var soundNum=3,a=0;
 
 var fontTextRight="————代小代";
 var img=[];
+var imgbgNum=17;
 var audio=[];
 var color1="red",color2="#0094ff",color3="pink",color4="blue",color5="green";
 window.onload=function(){
@@ -73,7 +74,7 @@ function changeImage(){
 
 	 image.width=WINDOW_WIDTH;
 	 image.height=WINDOW_HEIGHT;
-	 var i=Math.floor(Math.random()*18);
+	 var i=Math.floor(Math.random()*imgbgNum);
 	 image.src="bg"+i+".jpg";
 }
 function update(){
